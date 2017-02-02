@@ -1,0 +1,36 @@
+﻿<div class="umb-editor umb-checkboxlist" ng-controller="PaulAik.UltimatePicker.AllowedModesController">
+    <ul class="unstyled">
+        <li>
+            <label class="checkbox">
+                <input type="checkbox" name="checkboxlist"
+                       value="url"
+                       ng-click="model.value.push('url')" />
+                URL
+            </label>
+        </li>
+        <li>
+            <label class="checkbox">
+                <input type="checkbox" name="checkboxlist"
+                       value="content"
+                       ng-model="content" />
+                Content
+            </label>
+        </li>
+        <li>
+            <label class="checkbox">
+                <input type="checkbox" name="checkboxlist"
+                       value="media"
+                       ng-model="model.value" />
+                Media
+            </label>
+        </li>
+        <li>
+            <label class="checkbox">
+                <input type="checkbox" name="checkboxlist"
+                       value="upload"
+                       ng-model="model.value" />
+                Upload
+            </label>
+        </li>
+    </ul>
+</div>
