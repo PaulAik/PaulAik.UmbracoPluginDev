@@ -382,6 +382,7 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
     <Content Include="App_Plugins\UltimateUrlPicker\prevalues\allowedmodes.html" />
+    <Content Include="App_Plugins\UltimateUrlPicker\prevalues\allowedmodes.js" />
     <Content Include="App_Plugins\UltimateUrlPicker\prevalues\dataformat.html" />
     <Content Include="App_Plugins\UltimateUrlPicker\prevalues\defaultmode.html" />
     <Content Include="App_Plugins\UltimateUrlPicker\urlpicker.controller.js" />
