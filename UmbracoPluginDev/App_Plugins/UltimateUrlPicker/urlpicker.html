@@ -1,3 +1,55 @@
-﻿<div ng-controller="PaulAik.UltimateUrlPicker">
-    <textarea ng-model="model.value"></textarea>
+﻿<style>
+    ul.tabs-headers li {
+        border: 1px solid #cac9c9;
+        display: block;
+        float: left;
+        padding: 2px 9px 0;
+        background: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f0f0f0));
+    }
+
+    ul.tabs-headers {
+        margin: 0;
+        padding: 0;
+        list-style: none none outside;
+        height: 19px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .tabs-content {
+        margin: 0;
+        padding: 1em 1.2em;
+        border: 1px solid #cac9c9;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        min-width: 200px;
+        list-style: none none outside;
+        background-color: #f0f0f0;
+        -webkit-transition: background-color .2s ease-in;
+        -moz-transition: background-color .2s ease-in;
+        transition: background-color .2s ease-in;
+    }
+</style>
+
+<div ng-controller="PaulAik.UltimateUrlPicker">
+    <div>
+        <label>Title:</label>
+        <input ng-model="model.value" type="text" />
+    </div>
+
+    <div>
+
+        <ul class="tabs-headers">
+            <li>URL</li>
+            <li>Content</li>
+            <li>Media</li>
+        </ul>
+        <div class="tabs-content">
+            <div class="tab-content" id="url">
+                <input type="text" />
+            </div>
+        </div>
+
+    </div>
 </div>
