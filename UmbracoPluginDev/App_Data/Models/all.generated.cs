@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "1b78f251b4865220")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "87dc6e0350d8316d")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -145,12 +145,48 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Date Picker
+		///</summary>
+		[ImplementPropertyType("advc50s4th18stwie7ss40wwmi")]
+		public DateTime Advc50s4th18stwie7ss40wwmi
+		{
+			get { return this.GetPropertyValue<DateTime>("advc50s4th18stwie7ss40wwmi"); }
+		}
+
+		///<summary>
 		/// Content
 		///</summary>
 		[ImplementPropertyType("content")]
-		public Newtonsoft.Json.Linq.JToken Content
+		public object Content
 		{
-			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("content"); }
+			get { return this.GetPropertyValue("content"); }
+		}
+
+		///<summary>
+		/// Macro
+		///</summary>
+		[ImplementPropertyType("macro")]
+		public IHtmlString Macro
+		{
+			get { return this.GetPropertyValue<IHtmlString>("macro"); }
+		}
+
+		///<summary>
+		/// Media Picker
+		///</summary>
+		[ImplementPropertyType("mediaPicker")]
+		public string MediaPicker
+		{
+			get { return this.GetPropertyValue<string>("mediaPicker"); }
+		}
+
+		///<summary>
+		/// Member Group Picker
+		///</summary>
+		[ImplementPropertyType("memberGroupPicker")]
+		public object MemberGroupPicker
+		{
+			get { return this.GetPropertyValue("memberGroupPicker"); }
 		}
 
 		///<summary>
@@ -178,6 +214,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string SiteTitle
 		{
 			get { return this.GetPropertyValue<string>("siteTitle"); }
+		}
+
+		///<summary>
+		/// Upload
+		///</summary>
+		[ImplementPropertyType("upload")]
+		public object Upload
+		{
+			get { return this.GetPropertyValue("upload"); }
 		}
 
 		///<summary>

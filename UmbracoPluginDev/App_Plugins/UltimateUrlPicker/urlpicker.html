@@ -1,4 +1,14 @@
 ﻿<style>
+    .classic-picker {
+
+    }
+
+    .clearfix {
+        
+        overflow: auto;
+        zoom: 1;
+    }
+
     ul.tabs-headers li {
         border: 1px solid #cac9c9;
         display: block;
@@ -11,8 +21,9 @@
         margin: 0;
         padding: 0;
         list-style: none none outside;
-        height: 19px;
         position: relative;
+
+        height: 23px;
         z-index: 1;
     }
 
@@ -26,24 +37,41 @@
         min-width: 200px;
         list-style: none none outside;
         background-color: #f0f0f0;
-        -webkit-transition: background-color .2s ease-in;
-        -moz-transition: background-color .2s ease-in;
-        transition: background-color .2s ease-in;
+
+    }
+
+    .tab-content {
+        display: inline-block;
+    }
+
+    .tab-header {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .tab-header.active {
+        font-weight: bold;
+        border-bottom: 0 none;
+        padding-bottom: 1px;
+    }
+
+    .classic-picker .title {
+        margin-bottom: 15px;
     }
 </style>
 
-<div ng-controller="PaulAik.UltimateUrlPicker">
-    <div>
+<div class="classic-picker" ng-controller="PaulAik.UltimateUrlPicker">
+    <div class="title">
         <label>Title:</label>
-        <input ng-model="model.value" type="text" />
+        <input ng-model="model.value" ng-click="openEditDialog()" type="text" />
     </div>
 
-    <div>
+    <div class="tabs-wrapper clearfix">
 
-        <ul class="tabs-headers">
-            <li>URL</li>
-            <li>Content</li>
-            <li>Media</li>
+        <ul class="tabs-headers ">
+            <li class="tab-header active">URL</li>
+            <li class="tab-header ">Content</li>
+            <li class="tab-header">Media</li>
         </ul>
         <div class="tabs-content">
             <div class="tab-content" id="url">
@@ -52,4 +80,10 @@
         </div>
 
     </div>
+
+    <umb-overlay ng-if="overlay.show"
+                 model="overlay"
+                 view="overlay.view"
+                 position="right">
+    </umb-overlay>
 </div>
