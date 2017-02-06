@@ -1,12 +1,25 @@
 ﻿<div ng-controller="PaulAik.UltimateUrlPickerDialog.Controller">
+
+    <div class="umb-control-group">
+        <label class="control-label">
+            Link To Document
+        </label>
+        <input type="text"
+               class="umb-editor umb-textstring"
+               readonly="readonly"
+               ng-model="model.target.url" />
+    </div>
     
-    <umb-control-group label="Link Title">
+    <div class="umb-control-group">
+        <label class="control-label">
+            Link Title
+        </label>
         <input type="text"
                localize="placeholder"
                placeholder="Enter a name..."
                class="umb-editor umb-textstring"
                ng-model="model.target.title" />
-    </umb-control-group>
+    </div>
 
     <umb-control-group label="Target">
         <label class="checkbox no-indent">
@@ -16,7 +29,7 @@
     </umb-control-group>
 
     <div class="umb-control-group">
-        <label class="control-label ng-scope ng-binding">
+        <label class="control-label">
             Content Type
         </label>
         <select ng-model="contentTypeOption">
@@ -31,7 +44,7 @@
                    placeholder="@general_url"
                    class="umb-editor umb-textstring"
                    ng-model="model.target.url"
-                   ng-disabled="model.target.id" />
+                   />
         </umb-control-group>
     </div>
 

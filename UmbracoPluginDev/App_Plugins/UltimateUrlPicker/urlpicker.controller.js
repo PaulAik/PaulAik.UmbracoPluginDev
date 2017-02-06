@@ -8,13 +8,13 @@
             $scope.overlay = {
                 // set the location of the view
                 view: "/App_Plugins/UltimateUrlPicker/urlpickerdialog.html",
-                title: "Hello",
+                title: "Configure URL",
                 show: true,
+                config: $scope.model.config,
                 // function called when dialog is closed
                 callback: function (value) {
 
                 }
-
             };
         };
 

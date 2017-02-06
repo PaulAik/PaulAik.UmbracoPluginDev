@@ -1,8 +1,12 @@
 ﻿<div class="classic-picker" ng-controller="PaulAik.UltimateUrlPicker">
-    <div class="title">
-        <label>Title:</label>
-        <input ng-model="model.value" ng-click="openEditDialog()" type="text" />
-    </div>
+    <ul class="unstyled list-icons" ng-show="!cfg.maxNumberOfItems || renderModel.length < cfg.maxNumberOfItems">
+        <li>
+            <i class="icon icon-add blue"></i>
+            <a href="#" ng-click="openEditDialog()" prevent-default>
+                <localize key="general_add">Add</localize>
+            </a>
+        </li>
+    </ul>
 
     <umb-overlay ng-if="overlay.show"
                  model="overlay"

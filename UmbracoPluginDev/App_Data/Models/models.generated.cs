@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "87dc6e0350d8316d")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f8b4670c3534ddd1")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -171,6 +171,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public object MemberGroupPicker
 		{
 			get { return this.GetPropertyValue("memberGroupPicker"); }
+		}
+
+		///<summary>
+		/// Multi Picker
+		///</summary>
+		[ImplementPropertyType("multiPicker")]
+		public RJP.MultiUrlPicker.Models.MultiUrls MultiPicker
+		{
+			get { return this.GetPropertyValue<RJP.MultiUrlPicker.Models.MultiUrls>("multiPicker"); }
 		}
 
 		///<summary>
