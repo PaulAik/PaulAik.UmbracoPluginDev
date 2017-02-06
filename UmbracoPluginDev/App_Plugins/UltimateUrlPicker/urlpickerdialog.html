@@ -1,62 +1,68 @@
 ﻿<div ng-controller="PaulAik.UltimateUrlPickerDialog.Controller">
-    <umb-control-group label="@content_urls">
+    
+    <umb-control-group label="Link Title">
         <input type="text"
                localize="placeholder"
-               placeholder="@general_url"
+               placeholder="Enter a name..."
                class="umb-editor umb-textstring"
-               ng-model="model.target.url"
-               ng-disabled="model.target.id" />
+               ng-model="model.target.title" />
     </umb-control-group>
-    <umb-control-group label="@content_nodeName">
-        <input type="text"
-               localize="placeholder"
-               placeholder="@placeholders_entername"
-               class="umb-editor umb-textstring"
-               ng-model="model.target.name" />
-    </umb-control-group>
-    <umb-control-group label="@content_target">
+
+    <umb-control-group label="Target">
         <label class="checkbox no-indent">
-            <input type="checkbox" ng-model="model.target.target" ng-true-value="_blank" ng-false-value="" /> <localize key="defaultdialogs_openInNewWindow">Opens the linked document in a new window or tab</localize>
+            <input type="checkbox" ng-model="model.target.target" ng-true-value="_blank" ng-false-value="" /> 
+            <localize key="defaultdialogs_openInNewWindow">Opens the linked document in a new window or tab</localize>
         </label>
     </umb-control-group>
+
     <div class="umb-control-group">
-        <h5>
-            <localize key="defaultdialogs_linkToPage">Link to page</localize>
-        </h5>
-        <umb-tree-search-box hide-search-callback="hideSearch"
-                             search-callback="onSearchResults"
-                             search-from-id="{{searchInfo.searchFromId}}"
-                             search-from-name="{{searchInfo.searchFromName}}"
-                             show-search="{{searchInfo.showSearch}}"
-                             section="{{section}}">
-        </umb-tree-search-box>
-        <br />
-        <umb-tree-search-results ng-if="searchInfo.showSearch"
-                                 results="searchInfo.results"
-                                 select-result-callback="selectResult">
-        </umb-tree-search-results>
-        <div ng-hide="searchInfo.showSearch">
+        <label class="control-label ng-scope ng-binding">
+            Content Type
+        </label>
+        <select ng-model="contentTypeOption">
+            <option ng-repeat="option in contentTypeOptions" value="{{option.id}}">{{option.name}}</option>
+        </select>
+    </div>
+
+    <div ng-show="contentTypeOption == 'url'">
+        <umb-control-group label="@content_urls">
+            <input type="text"
+                   localize="placeholder"
+                   placeholder="@general_url"
+                   class="umb-editor umb-textstring"
+                   ng-model="model.target.url"
+                   ng-disabled="model.target.id" />
+        </umb-control-group>
+    </div>
+
+    <div ng-show="contentTypeOption == 'content'">
+        <div class="umb-control-group">
+            <h5>
+                <localize key="defaultdialogs_linkToPage">Link to page</localize>
+            </h5>
             <umb-tree section="content"
-                      hideheader="true"
-                      hideoptions="true"
-                      eventhandler="dialogTreeEventHandler"
-                      isdialog="true"
-                      enablecheckboxes="true">
+                        hideheader="true"
+                        hideoptions="true"
+                        eventhandler="dialogTreeEventHandler"
+                        isdialog="true"
+                        enablecheckboxes="true">
             </umb-tree>
         </div>
     </div>
-    <div class="umb-control-group">
-        <h5>
-            <localize key="defaultdialogs_linkToMedia">Link to media</localize>
-        </h5>
-        <a href ng-click="switchToMediaPicker()" class="btn">
-            <localize key="defaultdialogs_selectMedia">Select media</localize>
-        </a>
-    </div>
-    <umb-overlay ng-if="mediaPickerOverlay.show"
-                 model="mediaPickerOverlay"
-                 view="mediaPickerOverlay.view"
-                 position="right">
-    </umb-overlay>
 
+    <div ng-show="contentTypeOption == 'media'">
+        <div class="umb-control-group">
+            <h5>
+                <localize key="defaultdialogs_linkToMedia">Link to media</localize>
+            </h5>
+            <a href ng-click="switchToMediaPicker()" class="btn">
+                <localize key="defaultdialogs_selectMedia">Select media</localize>
+            </a>
+        </div>
+        <umb-overlay ng-if="mediaPickerOverlay.show"
+                     model="mediaPickerOverlay"
+                     view="mediaPickerOverlay.view"
+                     position="right">
+        </umb-overlay>
+    </div>
 </div>

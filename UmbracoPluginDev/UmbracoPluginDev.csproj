@@ -332,6 +332,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\UltimateUrlPicker\urlpickerdialog.controller.js" />
+    <Content Include="App_Plugins\UltimateUrlPicker\urlpickerdialog.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

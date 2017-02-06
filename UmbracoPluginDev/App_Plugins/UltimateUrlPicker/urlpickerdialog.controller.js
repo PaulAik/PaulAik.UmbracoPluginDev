@@ -1,26 +1,19 @@
 ﻿//used for the media picker dialog
 angular.module("umbraco").controller("PaulAik.UltimateUrlPickerDialog.Controller",
 	function ($scope, eventsService, dialogService, entityResource, contentResource, mediaHelper, userService, localizationService) {
-	    //var dialogOptions = $scope.model;
+	    var dialogOptions = $scope.model;
 
-	    //var searchText = "Search...";
-	    //localizationService.localize("general_search").then(function (value) {
-	    //    searchText = value + "...";
-	    //});
+	    $scope.contentTypeOptions = [
+            { id: 'url', name: 'URL' },
+            { id: 'content', name: 'Content' },
+            { id: 'media', name: 'Media' }
+	    ];
 
-	    //if (!$scope.model.title) {
-	    //    $scope.model.title = localizationService.localize("defaultdialogs_selectLink");
-	    //}
+	    // TODO: from passed-in data.
+	    $scope.contentTypeOption = ''; 
 
 	    //$scope.dialogTreeEventHandler = $({});
-	    //$scope.model.target = {};
-	    //$scope.searchInfo = {
-	    //    searchFromId: null,
-	    //    searchFromName: null,
-	    //    showSearch: false,
-	    //    results: [],
-	    //    selectedSearchResults: []
-	    //};
+	    $scope.model.target = {};
 
 	    //if (dialogOptions.currentTarget) {
 	    //    $scope.model.target = dialogOptions.currentTarget;
@@ -107,45 +100,26 @@ angular.module("umbraco").controller("PaulAik.UltimateUrlPickerDialog.Controller
 	    //    }
 	    //}
 
-	    //$scope.switchToMediaPicker = function () {
-	    //    userService.getCurrentUser().then(function (userData) {
-	    //        $scope.mediaPickerOverlay = {
-	    //            view: "mediapicker",
-	    //            startNodeId: userData.startMediaId,
-	    //            show: true,
-	    //            submit: function (model) {
-	    //                var media = model.selectedImages[0];
+	    $scope.switchToMediaPicker = function () {
+	        userService.getCurrentUser().then(function (userData) {
+	            $scope.mediaPickerOverlay = {
+	                view: "mediapicker",
+	                startNodeId: userData.startMediaId,
+	                show: true,
+	                submit: function (model) {
+	                    var media = model.selectedImages[0];
 
-	    //                $scope.model.target.id = media.id;
-	    //                $scope.model.target.isMedia = true;
-	    //                $scope.model.target.name = media.name;
-	    //                $scope.model.target.url = mediaHelper.resolveFile(media);
+	                    $scope.model.target.id = media.id;
+	                    $scope.model.target.isMedia = true;
+	                    $scope.model.target.name = media.name;
+	                    $scope.model.target.url = mediaHelper.resolveFile(media);
 
-	    //                $scope.mediaPickerOverlay.show = false;
-	    //                $scope.mediaPickerOverlay = null;
-	    //            }
-	    //        };
-	    //    });
-	    //};
-
-	    //$scope.hideSearch = function () {
-	    //    $scope.searchInfo.showSearch = false;
-	    //    $scope.searchInfo.searchFromId = null;
-	    //    $scope.searchInfo.searchFromName = null;
-	    //    $scope.searchInfo.results = [];
-	    //}
-
-	    //// method to select a search result
-	    //$scope.selectResult = function (evt, result) {
-	    //    result.selected = result.selected === true ? false : true;
-	    //    nodeSelectHandler(evt, { event: evt, node: result });
-	    //};
-
-	    ////callback when there are search results
-	    //$scope.onSearchResults = function (results) {
-	    //    $scope.searchInfo.results = results;
-	    //    $scope.searchInfo.showSearch = true;
-	    //};
+	                    $scope.mediaPickerOverlay.show = false;
+	                    $scope.mediaPickerOverlay = null;
+	                }
+	            };
+	        });
+	    };
 
 	    //$scope.dialogTreeEventHandler.bind("treeNodeSelect", nodeSelectHandler);
 	    //$scope.dialogTreeEventHandler.bind("treeNodeExpanded", nodeExpandedHandler);
