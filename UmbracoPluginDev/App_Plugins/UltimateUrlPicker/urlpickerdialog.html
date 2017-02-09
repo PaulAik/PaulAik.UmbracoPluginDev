@@ -1,6 +1,6 @@
 ﻿<div ng-controller="PaulAik.UltimateUrlPickerDialog.Controller">
 
-    <div class="umb-control-group">
+    <!--<div class="umb-control-group">
         <label class="control-label">
             Link To Document
         </label>
@@ -8,9 +8,9 @@
                class="umb-editor umb-textstring"
                readonly="readonly"
                ng-model="model.target.url" />
-    </div>
+    </div>-->
     
-    <div class="umb-control-group">
+    <div class="umb-control-group" ng-show="allowLinkTitle">
         <label class="control-label">
             Link Title
         </label>
@@ -21,23 +21,26 @@
                ng-model="model.target.title" />
     </div>
 
-    <umb-control-group label="Target">
+    <div class="umb-control-group" ng-show="allowNewWindow">
+        <label class="control-label">
+            Target
+        </label>
         <label class="checkbox no-indent">
-            <input type="checkbox" ng-model="model.target.target" ng-true-value="_blank" ng-false-value="" /> 
+            <input type="checkbox" ng-model="model.target.target" ng-true-value="_blank" ng-false-value="" />
             <localize key="defaultdialogs_openInNewWindow">Opens the linked document in a new window or tab</localize>
         </label>
-    </umb-control-group>
+    </div>
 
     <div class="umb-control-group">
         <label class="control-label">
             Content Type
         </label>
-        <select ng-model="contentTypeOption">
-            <option ng-repeat="option in contentTypeOptions" value="{{option.id}}">{{option.name}}</option>
+        <select ng-model="model.target.contentTypeOption">
+            <option ng-repeat="option in contentTypeOptions" ng-selected="model.target.contentTypeOption==option.id" value="{{option.id}}">{{option.name}}</option>
         </select>
     </div>
 
-    <div ng-show="contentTypeOption == 'url'">
+    <div ng-show="model.target.contentTypeOption == 'url'">
         <umb-control-group label="@content_urls">
             <input type="text"
                    localize="placeholder"
@@ -48,7 +51,7 @@
         </umb-control-group>
     </div>
 
-    <div ng-show="contentTypeOption == 'content'">
+    <div ng-show="model.target.contentTypeOption == 'content'">
         <div class="umb-control-group">
             <h5>
                 <localize key="defaultdialogs_linkToPage">Link to page</localize>
@@ -63,7 +66,7 @@
         </div>
     </div>
 
-    <div ng-show="contentTypeOption == 'media'">
+    <div ng-show="model.target.contentTypeOption == 'media'">
         <div class="umb-control-group">
             <h5>
                 <localize key="defaultdialogs_linkToMedia">Link to media</localize>

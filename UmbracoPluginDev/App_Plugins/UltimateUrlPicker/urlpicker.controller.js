@@ -10,7 +10,7 @@
                 title: "Configure URL",
                 show: true,
                 config: $scope.model.config,
-                dialogData: $scope.model.value,
+                dialogData: angular.copy($scope.model.value),
                 submit: function (model) {
                     $scope.overlay.show = false;
                     $scope.overlay = null;
