@@ -12,7 +12,11 @@ angular.module("umbraco").controller("PaulAik.UltimateUrlPickerDialog.Controller
 	    // TODO: from passed-in data.
 	    $scope.contentTypeOption = ''; 
 
-	    $scope.model.target = {};
+	    if ($scope.model.dialogData != null) {
+	        $scope.model.target = $scope.model.dialogData;
+	    } else {
+	        $scope.model.target = {};
+	    }
 
 	    //if (dialogOptions.currentTarget) {
 	    //    $scope.model.target = dialogOptions.currentTarget;

@@ -1,9 +1,20 @@
 ﻿<div class="classic-picker" ng-controller="PaulAik.UltimateUrlPicker">
-    <ul class="unstyled list-icons" ng-show="!cfg.maxNumberOfItems || renderModel.length < cfg.maxNumberOfItems">
+    <ul class="unstyled list-icons" ng-show="model.value == null">
         <li>
             <i class="icon icon-add blue"></i>
             <a href="#" ng-click="openEditDialog()" prevent-default>
                 <localize key="general_add">Add</localize>
+            </a>
+        </li>
+    </ul>
+
+    <ul class="unstyled list-icons" ng-show="model.value != null">
+        <li>
+            <a href="#" prevent-default ng-click="remove($index)"><i class="icon-delete red"></i></a>
+            <a href="#" prevent-default ng-click="edit($index)">
+                <i class="icon icon-edit hover-show"></i>
+                <i class="hover-hide"></i>
+                {{ model.value.title }}
             </a>
         </li>
     </ul>
