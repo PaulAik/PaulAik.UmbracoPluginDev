@@ -256,6 +256,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AdminLinkModel.cs" />
     <Compile Include="UltimateUrlPickerPreValueEditor.cs" />
     <Compile Include="UltimateUrlPickerPropertyEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
