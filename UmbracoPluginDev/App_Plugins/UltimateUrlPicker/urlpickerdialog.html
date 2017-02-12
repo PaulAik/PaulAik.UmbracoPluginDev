@@ -26,7 +26,7 @@
             Target
         </label>
         <label class="checkbox no-indent">
-            <input type="checkbox" ng-model="model.target.target" ng-true-value="_blank" ng-false-value="" />
+            <input type="checkbox" ng-model="model.target.newWindow" ng-true-value="true" ng-false-value="false" />
             <localize key="defaultdialogs_openInNewWindow">Opens the linked document in a new window or tab</localize>
         </label>
     </div>
@@ -35,26 +35,28 @@
         <label class="control-label">
             Content Type
         </label>
-        <select ng-model="model.target.contentTypeOption">
-            <option ng-repeat="option in contentTypeOptions" ng-selected="model.target.contentTypeOption==option.id" value="{{option.id}}">{{option.name}}</option>
+        <select ng-model="model.target.mode" ng-options="mode.id as mode.name for mode in modes">
+            
         </select>
     </div>
 
-    <div ng-show="model.target.contentTypeOption == 'url'">
-        <umb-control-group label="@content_urls">
+    <div ng-show="model.target.mode == 1">
+        <div class="umb-control-group">
+            <label class="control-label">
+                URL
+            </label>
             <input type="text"
                    localize="placeholder"
-                   placeholder="@general_url"
+                   placeholder="URL"
                    class="umb-editor umb-textstring"
-                   ng-model="model.target.url"
-                   />
-        </umb-control-group>
+                   ng-model="model.target.url" />
+        </div>
     </div>
 
-    <div ng-show="model.target.contentTypeOption == 'content'">
+    <div ng-show="model.target.mode == 2">
         <div class="umb-control-group">
             <h5>
-                <localize key="defaultdialogs_linkToPage">Link to page</localize>
+                <label>Link to page</label>
             </h5>
             <umb-tree section="content"
                         hideheader="true"
@@ -66,7 +68,7 @@
         </div>
     </div>
 
-    <div ng-show="model.target.contentTypeOption == 'media'">
+    <div ng-show="model.target.mode == 3">
         <div class="umb-control-group">
             <h5>
                 <localize key="defaultdialogs_linkToMedia">Link to media</localize>

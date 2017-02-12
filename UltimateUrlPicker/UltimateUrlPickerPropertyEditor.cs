@@ -17,7 +17,7 @@ namespace UltimateUrlPicker
         {
             _defaultPreVals = new Dictionary<string, object>
                 {
-                    {"allowedmodes", "URL" },
+                    {"allowedmodes", "1" },
                 };
         }
 

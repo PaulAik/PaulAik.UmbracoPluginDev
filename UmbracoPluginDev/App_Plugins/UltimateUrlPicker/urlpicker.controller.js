@@ -1,7 +1,6 @@
 ﻿angular.module("umbraco")
     .controller("PaulAik.UltimateUrlPicker", function ($scope, dialogService) {
 
-
        function openEditDialogue() {
             // open a custom dialog
             $scope.overlay = {
@@ -18,18 +17,23 @@
                     if (model.target != null) {
                         $scope.model.value = model.target;
                     }
-
-                    console.log("Submit");
                 },
                 close: function (oldModel) {
                     $scope.overlay.show = false;
                     $scope.overlay = null;
-                    console.log("Close");
                 },
             };
         };
 
-        $scope.edit = function () {
+        $scope.edit = function() {
             openEditDialogue();
         };
+
+        $scope.add = function() {
+            openEditDialogue();
+        }
+
+        $scope.remove = function () {
+            $scope.model.value = null;
+        }
     });

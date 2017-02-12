@@ -11,29 +11,22 @@
             }
 
             $scope.selectedItems.push({
-                checked: _.contains($scope.model.value, 'url'),
-                key: 'url',
+                checked: _.contains($scope.model.value, 1),
+                key: 1,
                 val: 'URL'
             });
 
             $scope.selectedItems.push({
-                checked: _.contains($scope.model.value, 'content'),
-                key: 'content',
+                checked: _.contains($scope.model.value, 2),
+                key: 2,
                 val: 'Content'
             });
 
             $scope.selectedItems.push({
-                checked: _.contains($scope.model.value, 'media'), 
-                key: 'media',
+                checked: _.contains($scope.model.value, 3), 
+                key: 3,
                 val: 'Media'
             });
-
-            $scope.selectedItems.push({
-                checked: _.contains($scope.model.value, 'upload'), 
-                key: 'upload',
-                val: 'Upload'
-            });
-
         }
 
         setupViewModel();
