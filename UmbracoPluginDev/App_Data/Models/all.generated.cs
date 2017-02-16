@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f8b4670c3534ddd1")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "72ba6e810e3da54c")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -181,24 +181,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Member Group Picker
-		///</summary>
-		[ImplementPropertyType("memberGroupPicker")]
-		public object MemberGroupPicker
-		{
-			get { return this.GetPropertyValue("memberGroupPicker"); }
-		}
-
-		///<summary>
-		/// Multi Picker
-		///</summary>
-		[ImplementPropertyType("multiPicker")]
-		public RJP.MultiUrlPicker.Models.MultiUrls MultiPicker
-		{
-			get { return this.GetPropertyValue<RJP.MultiUrlPicker.Models.MultiUrls>("multiPicker"); }
-		}
-
-		///<summary>
 		/// Site Description
 		///</summary>
 		[ImplementPropertyType("siteDescription")]
@@ -235,12 +217,12 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// URL Picker
+		/// URL 2
 		///</summary>
-		[ImplementPropertyType("uRLPicker")]
-		public object URlpicker
+		[ImplementPropertyType("uRL2")]
+		public object URl2
 		{
-			get { return this.GetPropertyValue("uRLPicker"); }
+			get { return this.GetPropertyValue("uRL2"); }
 		}
 	}
 

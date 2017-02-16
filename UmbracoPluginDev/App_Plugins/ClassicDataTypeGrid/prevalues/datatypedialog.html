@@ -1,0 +1,43 @@
+﻿<div ng-controller="PaulAik.ClassicDataTypeGrid.DataTypeDialogController">
+
+    <div class="umb-control-group">
+        <label class="control-label">
+            Name
+        </label>
+        <input type="text"
+               class="umb-editor umb-textstring"
+               ng-model="model.target.name" />
+    </div>
+
+    <div class="umb-control-group">
+        <label class="control-label">
+            Alias
+        </label>
+        <input type="text"
+               class="umb-editor umb-textstring"
+               ng-model="model.target.alias" />
+    </div>
+
+    <div class="umb-control-group">
+        <label class="control-label">
+            DataType
+        </label>
+        <select ng-model="model.target.dataTypeId" ng-options="dataTypeResource.id as dataTypeResource.name for dataTypeResource in dataTypeResources"></select>
+    </div>
+
+    <div class="umb-control-group">
+        <label class="control-label">
+            Mandatory
+        </label>
+        <input type="checkbox" ng-model="model.target.mandatory" />
+        <label>This column is mandatory</label>
+    </div>
+
+    <div class="umb-control-group">
+        <label class="control-label">
+            Visible
+        </label>
+        <input type="checkbox" ng-model="model.target.visible" />
+        <label>This column is visible in the grid (can still be edited)</label>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+﻿<div ng-controller="PaulAik.ClassicDataTypeGrid.PreValueColumnsController">
+    
+
+    <div class="umb-table" style="overflow-x:auto;">
+        <div class="umb-table-head">
+            <div class="umb-table-row">
+                <div class="umb-table-cell"></div>
+                <div class="umb-table-cell">Name</div>
+                <div class="umb-table-cell">Alias</div>
+                <div class="umb-table-cell">Datatype</div>
+                <div class="umb-table-cell">Mandatory</div>
+                <div class="umb-table-cell">Visible</div>
+                <div class="umb-table-cell">Actions</div>
+            </div>
+        </div>
+
+        <div class="umb-table-body">
+            <div class="umb-table-row -solid" ng-repeat="row in model.value">
+                <div class="umb-table-cell">
+                   
+                </div>
+
+                <div class="umb-table-cell">
+                    {{ row.name }}
+                </div>
+
+                <div class="umb-table-cell">
+                    {{ row.alias }}
+                </div>
+
+                <div class="umb-table-cell">
+                    {{ row.dataTypeId }}
+                </div>
+
+                <div class="umb-table-cell">
+                    {{ row.mandatory }}
+                </div>
+
+                <div class="umb-table-cell">
+                    {{ row.visible }}
+                </div>
+
+                <div class="umb-table-cell">
+                    <a ng-click="openEditDialogue($index)">Edit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="unstyled list-icons umb-contentpicker ui-sortable" ui-sortable="">
+
+        <!-- ngRepeat: configValue in model.value.config -->
+        <li  ng-repeat="row in model.value" class="ng-scope ui-sortable-handle">
+            
+            <i class="icon icon-navigation handle"></i>
+           
+
+            <a href="#" prevent-default="" ng-click="openEditDialogue($index)" >
+               
+                <i class="icon icon-edit blue hover-show"></i>
+               
+                <i class="icon-settings-alt-2 hover-hide"></i>
+                {{ row.name }} ({{ row.dataTypeId }})
+            </a>
+            <a class="btn btn-small btn-link " ng-click=""><i class="icon icon-delete red"></i> Delete</a>
+        </li>
+    </ul>
+
+    <a class="btn" ng-click="openEditDialogue(-1)"><i class="icon-add"></i> Add Row</a>
+
+    <umb-overlay ng-if="overlay.show"
+                 model="overlay"
+                 view="overlay.view"
+                 position="right">
+    </umb-overlay>
+</div>
+
