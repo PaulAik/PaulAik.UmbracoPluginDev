@@ -1,52 +1,5 @@
 ﻿<div ng-controller="PaulAik.ClassicDataTypeGrid.PreValueColumnsController">
     
-
-    <div class="umb-table" style="overflow-x:auto;">
-        <div class="umb-table-head">
-            <div class="umb-table-row">
-                <div class="umb-table-cell"></div>
-                <div class="umb-table-cell">Name</div>
-                <div class="umb-table-cell">Alias</div>
-                <div class="umb-table-cell">Datatype</div>
-                <div class="umb-table-cell">Mandatory</div>
-                <div class="umb-table-cell">Visible</div>
-                <div class="umb-table-cell">Actions</div>
-            </div>
-        </div>
-
-        <div class="umb-table-body">
-            <div class="umb-table-row -solid" ng-repeat="row in model.value">
-                <div class="umb-table-cell">
-                   
-                </div>
-
-                <div class="umb-table-cell">
-                    {{ row.name }}
-                </div>
-
-                <div class="umb-table-cell">
-                    {{ row.alias }}
-                </div>
-
-                <div class="umb-table-cell">
-                    {{ row.dataTypeId }}
-                </div>
-
-                <div class="umb-table-cell">
-                    {{ row.mandatory }}
-                </div>
-
-                <div class="umb-table-cell">
-                    {{ row.visible }}
-                </div>
-
-                <div class="umb-table-cell">
-                    <a ng-click="openEditDialogue($index)">Edit</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <ul class="unstyled list-icons umb-contentpicker ui-sortable" ui-sortable="">
 
         <!-- ngRepeat: configValue in model.value.config -->
