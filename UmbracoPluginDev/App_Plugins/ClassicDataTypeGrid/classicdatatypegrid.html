@@ -1,1 +1,37 @@
-﻿Classic DTG!
+﻿<div ng-controller="PaulAik.ClassicDataTypeGrid.Controller">
+
+    <!--<umb-property ng-repeat="property in dataTypeResources" property="property">
+        <umb-editor model="property"></umb-editor>
+    </umb-property>-->
+
+
+    <div class="umb-table" style="margin-bottom: 10px;">
+        <div class="umb-table-head">
+            <div class="umb-table-row">
+                <div class="umb-table-cell"></div>
+                <div class="umb-table-cell" ng-repeat="column in properties">{{ column.name }}</div>
+            </div>
+        </div>
+
+        <div class="umb-table-body">
+            <div class="umb-table-row -solid" ng-repeat="row in model.value">
+                <div class="umb-table-cell">
+                    <a ng-click="openEditDialogue($index)">Edit</a>
+                </div>
+                <div class="umb-table-cell" ng-repeat="column in row">
+                    
+                    {{ displayValueForColumn(column.id, column.value) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="btn" ng-click="openEditDialogue()"><i class="icon-add"></i> Add</a>
+
+    <umb-overlay ng-if="overlay.show"
+                 model="overlay"
+                 view="overlay.view"
+                 position="right">
+    </umb-overlay>
+
+</div>

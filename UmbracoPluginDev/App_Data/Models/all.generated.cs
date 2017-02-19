@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "72ba6e810e3da54c")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "8bcf005203c74202")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 
@@ -151,6 +151,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public DateTime Advc50s4th18stwie7ss40wwmi
 		{
 			get { return this.GetPropertyValue<DateTime>("advc50s4th18stwie7ss40wwmi"); }
+		}
+
+		///<summary>
+		/// Classic DTG
+		///</summary>
+		[ImplementPropertyType("classicDTG")]
+		public object ClassicDtg
+		{
+			get { return this.GetPropertyValue("classicDTG"); }
 		}
 
 		///<summary>

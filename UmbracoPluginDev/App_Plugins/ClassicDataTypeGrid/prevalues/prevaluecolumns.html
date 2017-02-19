@@ -1,21 +1,15 @@
 ﻿<div ng-controller="PaulAik.ClassicDataTypeGrid.PreValueColumnsController">
     
-    <ul class="unstyled list-icons umb-contentpicker ui-sortable" ui-sortable="">
+    <ul class="unstyled list-icons umb-contentpicker ui-sortable" ui-sortable="sortableOptions">
 
-        <!-- ngRepeat: configValue in model.value.config -->
-        <li  ng-repeat="row in model.value" class="ng-scope ui-sortable-handle">
-            
+        <li data-rowid="{{ row.id }}" ng-repeat="row in model.value" class="ng-scope ui-sortable-handle">
             <i class="icon icon-navigation handle"></i>
-           
-
-            <a href="#" prevent-default="" ng-click="openEditDialogue($index)" >
-               
+            <a href="#" prevent-default="" ng-click="openEditDialogue($index)" >             
                 <i class="icon icon-edit blue hover-show"></i>
-               
                 <i class="icon-settings-alt-2 hover-hide"></i>
                 {{ row.name }} ({{ row.dataTypeId }})
             </a>
-            <a class="btn btn-small btn-link " ng-click=""><i class="icon icon-delete red"></i> Delete</a>
+            <a class="btn btn-small btn-link" ng-click="deleteRow($index)"><i class="icon icon-delete red"></i> Delete</a>
         </li>
     </ul>
 

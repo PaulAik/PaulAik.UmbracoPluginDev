@@ -1,5 +1,5 @@
 ﻿angular.module("umbraco").controller("PaulAik.ClassicDataTypeGrid.DataTypeDialogController",
-    function ($scope, dataTypeResource) {
+    function ($scope, dataTypeResource, umbRequestHelper, $http) {
         var dialogOptions = $scope.model;
 
         $scope.dataTypeResources = [];
@@ -10,8 +10,13 @@
             $scope.model.target = dialogOptions.dialogData;
         }
 
-        dataTypeResource.getAll().then(function (dataTypeResources) {
-            $scope.dataTypeResources = dataTypeResources;
+        var url = Umbraco.Sys.ServerVariables.umbracoSettings.umbracoPath + "/backoffice/ClassicDataTypeGrid/ClassicDataTypeGridApi/GetDataTypeEditors";
+
+        umbRequestHelper.resourcePromise(
+                    $http.get(url),
+                    'Failed to retrieve content types'
+        ).then(function (data) {
+            $scope.dataTypeResources = data;
         });
 
     });

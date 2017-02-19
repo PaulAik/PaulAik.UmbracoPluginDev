@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Umbraco.Core.PropertyEditors;
 
-namespace ClassicDataTypeGrid
+namespace ClassicDataTypeGrid.PropertyEditors
 {
     public class ClassicDataTypeGridPreValueEditor : PreValueEditor
     {
