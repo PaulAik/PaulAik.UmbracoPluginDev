@@ -22,14 +22,16 @@
         <label class="control-label">
             Data Type
         </label>
-        <select ng-model="model.target.dataTypeId" ng-options="dataTypeResource.id as dataTypeResource.name for dataTypeResource in dataTypeResources"></select>
+        <select ng-model="model.target.dataTypeId" >
+            <option ng-repeat="dataTypeResource in dataTypeResources" value="{{dataTypeResource.id}}" ng-selected="dataTypeResource.id == model.target.dataTypeId">{{dataTypeResource.name}}</option>
+        </select>
     </div>
 
     <div class="umb-control-group">
         <label class="control-label">
             Mandatory
         </label>
-        <input type="checkbox" ng-model="model.target.mandatory" />
+        <input type="checkbox" ng-model="model.target.mandatory" ng-true-value="1" ng-false-value="0" />
         <label>This column is mandatory</label>
     </div>
 
@@ -37,7 +39,7 @@
         <label class="control-label">
             Visible
         </label>
-        <input type="checkbox" ng-model="model.target.visible" />
+        <input type="checkbox" ng-model="model.target.visible" ng-true-value="1" ng-false-value="0" />
         <label>This column is visible in the grid (can still be edited)</label>
     </div>
 </div>

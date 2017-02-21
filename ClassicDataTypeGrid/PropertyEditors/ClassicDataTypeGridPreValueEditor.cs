@@ -69,21 +69,38 @@ namespace ClassicDataTypeGrid.PropertyEditors
 
             var preValues = persistedPreVals.PreValuesAsArray.ToList();
 
-            for(var i = 0; i < preValues.Count(); i++)
-            {
-                // Header
-                if(i == 0)
-                {
-                    JObject headerObject = JObject.Parse(preValues[i].Value);
+            JArray controlDataArray = new JArray();
 
-                    editorValues.Add("showLabel", new PreValue(headerObject.Value<bool>("ShowLabel") ? "1" : "0"));
-                    editorValues.Add("showGridHeader", new PreValue(headerObject.Value<bool>("ShowGridHeader") ? "1" : "0"));
-                    editorValues.Add("showGridFooter", new PreValue(headerObject.Value<bool>("ShowGridFooter") ? "1" : "0"));
-                    editorValues.Add("readOnly", new PreValue(headerObject.Value<bool>("ReadOnly") ? "1" : "0"));
-                    editorValues.Add("tableHeight", new PreValue(headerObject.Value<string>("TableHeight")));
-                    editorValues.Add("mandatory", new PreValue(headerObject.Value<string>("Mandatory"))); // TODO: wat dis?
+            for (var i = 0; i < preValues.Count(); i++)
+            {
+                JObject rowObject = JObject.Parse(preValues[i].Value);
+
+                if (i == 0)
+                {
+                    // Header
+                    editorValues.Add("showLabel", new PreValue(rowObject.Value<bool>("ShowLabel") ? "1" : "0"));
+                    editorValues.Add("showGridHeader", new PreValue(rowObject.Value<bool>("ShowGridHeader") ? "1" : "0"));
+                    editorValues.Add("showGridFooter", new PreValue(rowObject.Value<bool>("ShowGridFooter") ? "1" : "0"));
+                    editorValues.Add("readOnly", new PreValue(rowObject.Value<bool>("ReadOnly") ? "1" : "0"));
+                    editorValues.Add("tableHeight", new PreValue(rowObject.Value<string>("TableHeight")));
+                    editorValues.Add("mandatory", new PreValue(rowObject.Value<string>("Mandatory"))); // TODO: wat dis?
+                } else
+                {
+                    // Rows
+                    JObject jsonRowObject = new JObject();
+
+                    jsonRowObject.Add("name", rowObject.Value<string>("Name"));
+                    jsonRowObject.Add("alias", rowObject.Value<string>("Alias"));
+                    jsonRowObject.Add("mandatory", rowObject.Value<bool>("Mandatory") ? "1" : "0");
+                    jsonRowObject.Add("visible", rowObject.Value<bool>("Visible") ? "1" : "0");
+                    jsonRowObject.Add("validationExpression", rowObject.Value<string>("ValidationExpression"));
+                    jsonRowObject.Add("dataTypeId", rowObject.Value<int>("DataTypeId"));
+
+                    controlDataArray.Add(jsonRowObject);
                 }
             }
+
+            editorValues.Add("columns", new PreValue(controlDataArray.ToString()));
 
             return base.ConvertDbToEditor(defaultPreVals, new PreValueCollection(editorValues));
         }
