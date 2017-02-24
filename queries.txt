@@ -1,0 +1,35 @@
+-- All new Classic Grid Data Types
+SELECT *
+  FROM [cmsDataType] dt
+  inner join cmsPropertyType cpt on dt.nodeId = cpt.dataTypeId
+  inner join cmsPropertyData cpd on cpt.id = cpd.[propertytypeid]
+  where dt.nodeId = 1094
+
+-- Original Grid Data Type Structure
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+   <item id="1" sortOrder="1">
+      <preTitle nodeName="PreTitle" nodeType="-88">PreTitle</preTitle>
+      <title nodeName="Title" nodeType="-88">Title</title>
+      <description nodeName="Description" nodeType="-88">Description</description>
+      <link nodeName="Link" nodeType="1095">&amp;lt;url-picker mode=&amp;quot;URL&amp;quot;&amp;gt;
+  &amp;lt;new-window&amp;gt;False&amp;lt;/new-window&amp;gt;
+  &amp;lt;node-id&amp;gt;&amp;lt;/node-id&amp;gt;
+  &amp;lt;url&amp;gt;http://www.google.com&amp;lt;/url&amp;gt;
+  &amp;lt;link-title&amp;gt;Link&amp;lt;/link-title&amp;gt;
+&amp;lt;/url-picker&amp;gt;</link>
+      <media nodeName="Media" nodeType="1035" />
+   </item>
+</items>
+
+-- New Grid Data Type Structure
+[
+   [
+      {
+         "value": "1089"
+      },
+      {
+         "value": "Caption"
+      }
+   ]
+]

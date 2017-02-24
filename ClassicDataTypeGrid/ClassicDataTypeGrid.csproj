@@ -261,6 +261,7 @@
     <Compile Include="PropertyEditors\ClassicDataTypeGridPreValueEditor.cs" />
     <Compile Include="PropertyEditors\ClassicDataTypeGridPropertyEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyEditors\ClassicDataTypeGridPropertyValueEditorWrapper.cs" />
     <Compile Include="Web\Controllers\ClassicDataTypeGridApiController.cs" />
   </ItemGroup>
   <ItemGroup>
