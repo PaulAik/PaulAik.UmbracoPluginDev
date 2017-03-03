@@ -10,8 +10,8 @@
             update: function (e, ui) {
                 // Get the new and old index for the moved element (using the URL as the identifier)
                 var newIndex = ui.item.index();
-                var movedRowId = ui.item.attr('data-rowid');
-                var originalIndex = getElementIndexById(movedRowId);
+                var movedRowAlias = ui.item.attr('data-rowalias');
+                var originalIndex = getElementIndexByAlias(movedRowAlias);
 
                 // Move the element in the model
                 var movedElement = $scope.model.value[originalIndex];
@@ -69,9 +69,9 @@
             $scope.model.value.splice(rowIndex, 1);
         };
 
-        function getElementIndexById(id) {
+        function getElementIndexByAlias(alias) {
             for (var i = 0; i < $scope.model.value.length; i++) {
-                if ($scope.model.value[i].id == id) {
+                if ($scope.model.value[i].alias == alias) {
                     return i;
                 }
             }

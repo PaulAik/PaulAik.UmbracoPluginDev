@@ -67,7 +67,16 @@ namespace ClassicDataTypeGrid.PropertyEditors
         {
             IDictionary<string, PreValue> editorValues = new Dictionary<string, PreValue>();
 
-            var preValues = persistedPreVals.PreValuesAsArray.ToList();
+            List<PreValue> preValues = null;
+
+            // The original value will be array-based, but after saving in U7 it'll be dictionary based...
+            if (!persistedPreVals.IsDictionaryBased)
+            {
+                preValues = persistedPreVals.PreValuesAsArray.ToList();
+            } else
+            {
+                preValues = persistedPreVals.PreValuesAsDictionary.Values.ToList();
+            }
 
             JArray controlDataArray = new JArray();
 
@@ -77,7 +86,7 @@ namespace ClassicDataTypeGrid.PropertyEditors
 
                 if (i == 0)
                 {
-                    // Header
+                    // Property Values Row
                     editorValues.Add("showLabel", new PreValue(rowObject.Value<bool>("ShowLabel") ? "1" : "0"));
                     editorValues.Add("showGridHeader", new PreValue(rowObject.Value<bool>("ShowGridHeader") ? "1" : "0"));
                     editorValues.Add("showGridFooter", new PreValue(rowObject.Value<bool>("ShowGridFooter") ? "1" : "0"));
@@ -86,7 +95,7 @@ namespace ClassicDataTypeGrid.PropertyEditors
                     editorValues.Add("mandatory", new PreValue(rowObject.Value<string>("Mandatory"))); // TODO: wat dis?
                 } else
                 {
-                    // Rows
+                    // Data Rows
                     JObject jsonRowObject = new JObject();
 
                     jsonRowObject.Add("name", rowObject.Value<string>("Name"));
@@ -107,9 +116,44 @@ namespace ClassicDataTypeGrid.PropertyEditors
 
         public override IDictionary<string, PreValue> ConvertEditorToDb(IDictionary<string, object> editorValue, PreValueCollection currentValue)
         {
+            IDictionary<string, object> newEditorValue = new Dictionary<string, object>();
 
+            // Row 1: Property Values
+            JObject propertyValuesRow = new JObject();
+            propertyValuesRow.Add("ShowLabel", int.Parse(editorValue["showLabel"].ToString()) == 1 ? true : false);
+            propertyValuesRow.Add("ShowGridHeader", int.Parse(editorValue["showGridHeader"].ToString()) == 1 ? true : false);
+            propertyValuesRow.Add("ShowGridFooter", int.Parse(editorValue["showGridFooter"].ToString()) == 1 ? true : false);
+            propertyValuesRow.Add("ReadOnly", int.Parse(editorValue["readOnly"].ToString()) == 1 ? true : false);
+            if (editorValue["tableHeight"] != null)
+            {
+                propertyValuesRow.Add("TableHeight", int.Parse(editorValue["tableHeight"].ToString()));
+            }
+           // propertyValuesRow.Add("mandatory", int.Parse(editorValue["mandatory"].ToString()) == 1 ? true : false);
 
-            return base.ConvertEditorToDb(editorValue, currentValue);
+            newEditorValue.Add("properties", propertyValuesRow);
+
+            // Rows 2-N: Column values
+            if (editorValue["columns"] != null)
+            {
+                JArray columnValuesRow = JArray.Parse(editorValue["columns"].ToString());
+
+                for(var i = 0; i < columnValuesRow.Count; i++)
+                {
+                    var row = columnValuesRow[i];
+
+                    JObject columnObject = new JObject();
+                    columnObject.Add("Name", row["name"].Value<string>());
+                    columnObject.Add("Alias", row["alias"].Value<string>());
+                    columnObject.Add("Mandatory", false);
+                    columnObject.Add("Visible", true);
+                    columnObject.Add("ValidationExpression", "");
+                    columnObject.Add("DataTypeId", row["dataTypeId"].Value<int>());
+
+                    newEditorValue.Add($"row{i}", columnObject);
+                }
+            }
+
+            return base.ConvertEditorToDb(newEditorValue, currentValue);
         }
     }
 }

@@ -2,7 +2,7 @@
     
     <ul class="unstyled list-icons umb-contentpicker ui-sortable" ui-sortable="sortableOptions">
 
-        <li data-rowid="{{ row.id }}" ng-repeat="row in model.value" class="ng-scope ui-sortable-handle">
+        <li data-rowalias="{{ row.alias }}" ng-repeat="row in model.value" class="ng-scope ui-sortable-handle">
             <i class="icon icon-navigation handle"></i>
             <a href="#" prevent-default="" ng-click="openEditDialogue($index)" >             
                 <i class="icon icon-edit blue hover-show"></i>
@@ -11,6 +11,7 @@
             </a>
             <a class="btn btn-small btn-link" ng-click="deleteRow($index)"><i class="icon icon-delete red"></i> Delete</a>
         </li>
+
     </ul>
 
     <a class="btn" ng-click="openEditDialogue(-1)"><i class="icon-add"></i> Add Row</a>
