@@ -257,6 +257,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\ClassicDataTypeGridColumnPreValue.cs" />
     <Compile Include="Models\ClassicGridDataTypeModel.cs" />
     <Compile Include="PropertyEditors\ClassicDataTypeGridPreValueEditor.cs" />
     <Compile Include="PropertyEditors\ClassicDataTypeGridPropertyEditor.cs" />

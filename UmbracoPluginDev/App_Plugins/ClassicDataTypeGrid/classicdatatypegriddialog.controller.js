@@ -5,9 +5,9 @@
         $scope.rows = [];
 
         // If we had values passed in, set them as the target (sent back in the callback).
-        if (dialogOptions.dialogData) {
-            $scope.rows = dialogOptions.dialogData;
-        }
+        //if (dialogOptions.dialogData) {
+        //    $scope.rows = dialogOptions.dialogData;
+        //}
 
         var properties = dialogOptions.config.columns;
 
@@ -30,7 +30,7 @@
                 var dataTypeEditor = _.findWhere(data, { id: value.dataTypeId });
 
                 // Need to copy the data type editor here or all data type editors of the same type will share values
-                var row = { name: value.name, editor: angular.copy(dataTypeEditor), id: value.id };
+                var row = { name: value.name, editor: angular.copy(dataTypeEditor), alias: value.alias };
 
                 $scope.rows.push(row);
             });
@@ -45,7 +45,7 @@
             angular.forEach($scope.rows, function (row, key) {
                 $scope.model.target.push({
                     value: row.editor.value,
-                    id: row.id
+                    alias: row.alias
                 });
             });
         });

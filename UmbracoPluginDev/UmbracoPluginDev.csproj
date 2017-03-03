@@ -334,6 +334,8 @@
   <ItemGroup>
     <Content Include="App_Plugins\ClassicDataTypeGrid\classicdatatypegrid.controller.js" />
     <Content Include="App_Plugins\ClassicDataTypeGrid\classicdatatypegrid.html" />
+    <Content Include="App_Plugins\ClassicDataTypeGrid\classicdatatypegriddialog.controller.js" />
+    <Content Include="App_Plugins\ClassicDataTypeGrid\classicdatatypegriddialog.html" />
     <Content Include="App_Plugins\ClassicDataTypeGrid\prevalues\prevaluecolumns.html" />
     <Content Include="App_Plugins\ClassicDataTypeGrid\prevalues\prevaluecolumns.controller.js" />
     <Content Include="App_Plugins\ClassicDataTypeGrid\prevalues\datatypedialog.controller.js" />
