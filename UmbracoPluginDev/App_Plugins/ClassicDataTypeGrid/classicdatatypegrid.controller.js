@@ -54,15 +54,21 @@
             };
         };
 
-        $scope.displayValueForColumn = function(columnId, value) {
-            var column = _.findWhere($scope.properties, { id: columnId });
-            var dataType = _.findWhere($scope.dataTypeResources, { id: column.dataTypeId });
+        $scope.displayValueForColumn = function (columnData) {
+            // We need to ensure all backing data has loaded before we try to process...
+            if (columnData && $scope.dataTypeResources) {
+                var alias = columnData.alias;
+                var value = columnData.value;
 
-            switch (dataType.alias) {
-                case "Umbraco.Textbox":
-                    return value;
-                case "PaulAik.UltimateUrlPicker": //TODO: Rename!
-                    return value.url;
+                var column = _.findWhere($scope.properties, { alias: alias });
+                var dataType = _.findWhere($scope.dataTypeResources, { id: column.dataTypeId });
+
+                switch (dataType.alias) {
+                    case "Umbraco.Textbox":
+                        return value;
+                    case "PaulAik.UltimateUrlPicker": //TODO: Rename!
+                        return value.url;
+                }
             }
 
             return "";

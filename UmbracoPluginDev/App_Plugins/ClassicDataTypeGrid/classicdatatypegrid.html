@@ -19,8 +19,7 @@
                     <a ng-click="openEditDialogue($index)">Edit</a>
                 </div>
                 <div class="umb-table-cell" ng-repeat="column in row">
-                    
-                    {{ displayValueForColumn(column.id, column.value) }}
+                    {{ displayValueForColumn(column) }}
                 </div>
             </div>
         </div>

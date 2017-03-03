@@ -181,10 +181,5 @@ namespace UltimateUrlPicker
 
             return serializedData;
         }
-
-        public override string ConvertDbToString(Property property, PropertyType propertyType, IDataTypeService dataTypeService)
-        {
-            return base.ConvertDbToString(property, propertyType, dataTypeService);
-        }
     }
 }

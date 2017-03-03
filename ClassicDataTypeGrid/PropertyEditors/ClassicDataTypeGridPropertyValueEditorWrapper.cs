@@ -25,6 +25,35 @@ namespace ClassicDataTypeGrid.PropertyEditors
 
         public override object ConvertDbToEditor(Property property, PropertyType propertyType, IDataTypeService dataTypeService)
         {
+            XElement dataNode = null;
+            try
+            {
+                dataNode = XElement.Parse(property.Value.ToString());
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            JArray returnArray = new JArray();
+
+            // Elements = rows
+            foreach(var item in dataNode.Elements())
+            {
+                JArray rowObject = new JArray();
+
+                foreach (var columnObject in item.Elements()) {
+                    JObject rowData = new JObject();
+                    rowData.Add("alias", columnObject.Name.ToString());
+                    rowData.Add("value", columnObject.Value);
+                    rowObject.Add(rowData);
+                }
+
+                returnArray.Add(rowObject);
+            }
+
+            property.Value = returnArray;
+
             return base.ConvertDbToEditor(property, propertyType, dataTypeService);
         }
 
@@ -43,7 +72,7 @@ namespace ClassicDataTypeGrid.PropertyEditors
             var rowElements = new XElement("items");
 
             var doc = new XDocument(
-                new XDeclaration("1.0", "utf-8", ""),
+                new XDeclaration("1.0", "utf-8", "yes"),
                 rowElements
             );
 
@@ -84,7 +113,7 @@ namespace ClassicDataTypeGrid.PropertyEditors
             string strXML = string.Concat(doc.Declaration.ToString(), "\r\n",
                               doc.ToString());
 
-            return base.ConvertEditorToDb(editorValue, currentValue);
+            return strXML;
         }
     }
 }
