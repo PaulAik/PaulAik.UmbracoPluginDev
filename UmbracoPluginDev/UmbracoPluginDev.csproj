@@ -340,6 +340,14 @@
     <Content Include="App_Plugins\ClassicDataTypeGrid\prevalues\prevaluecolumns.controller.js" />
     <Content Include="App_Plugins\ClassicDataTypeGrid\prevalues\datatypedialog.controller.js" />
     <Content Include="App_Plugins\ClassicDataTypeGrid\prevalues\datatypedialog.html" />
+    <Content Include="App_Plugins\ClassicUrlPicker\prevalues\allowedmodes.html" />
+    <Content Include="App_Plugins\ClassicUrlPicker\prevalues\allowedmodes.js" />
+    <Content Include="App_Plugins\ClassicUrlPicker\prevalues\dataformat.html" />
+    <Content Include="App_Plugins\ClassicUrlPicker\prevalues\defaultmode.html" />
+    <Content Include="App_Plugins\ClassicUrlPicker\urlpicker.controller.js" />
+    <Content Include="App_Plugins\ClassicUrlPicker\urlpicker.html" />
+    <Content Include="App_Plugins\ClassicUrlPicker\urlpickerdialog.controller.js" />
+    <Content Include="App_Plugins\ClassicUrlPicker\urlpickerdialog.html" />
     <Content Include="App_Plugins\u7dtg\directives\rteDirective.js" />
     <Content Include="App_Plugins\u7dtg\prevalues\u7dtg.prevalues.columns.html" />
     <Content Include="App_Plugins\u7dtg\prevalues\u7dtg.prevalues.controller.js" />
@@ -409,6 +417,7 @@
     <Content Include="App_Plugins\UltimateUrlPicker\package.manifest" />
     <Content Include="App_Plugins\ClassicDataTypeGrid\package.manifest" />
     <Content Include="App_Plugins\u7dtg\package.manifest" />
+    <Content Include="App_Plugins\ClassicUrlPicker\package.manifest" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -460,6 +469,10 @@
     <ProjectReference Include="..\ClassicDataTypeGrid\ClassicDataTypeGrid.csproj">
       <Project>{6608e74c-66fd-4fea-9788-99b8f9822cc9}</Project>
       <Name>ClassicDataTypeGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassicUrlPicker\ClassicUrlPicker.csproj">
+      <Project>{926701b7-6fd9-48a2-a7ab-86c49bef8b15}</Project>
+      <Name>ClassicUrlPicker</Name>
     </ProjectReference>
     <ProjectReference Include="..\UltimateUrlPicker\UltimateUrlPicker.csproj">
       <Project>{26e2a370-b09c-4563-bf6c-51d51e2ae7d2}</Project>

@@ -1,0 +1,27 @@
+﻿<div class="classic-picker" ng-controller="PaulAik.UltimateUrlPicker">
+    <ul class="unstyled list-icons" ng-show="model.value == null">
+        <li>
+            <i class="icon icon-add blue"></i>
+            <a href="#" ng-click="add()" prevent-default>
+                <localize key="general_add">Add</localize>
+            </a>
+        </li>
+    </ul>
+
+    <ul class="unstyled list-icons" ng-show="model.value != null">
+        <li>
+            <a href="#" prevent-default ng-click="remove()"><i class="icon-delete red"></i></a>
+            <a href="#" prevent-default ng-click="edit()">
+                <i class="icon icon-edit hover-show"></i>
+                <i class="hover-hide"></i>
+                {{ model.value.title }} ({{ model.value.url }})
+            </a>
+        </li>
+    </ul>
+
+    <umb-overlay ng-if="overlay.show"
+                 model="overlay"
+                 view="overlay.view"
+                 position="right">
+    </umb-overlay>
+</div>

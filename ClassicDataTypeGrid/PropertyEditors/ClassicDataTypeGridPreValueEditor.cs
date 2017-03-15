@@ -65,6 +65,7 @@ namespace ClassicDataTypeGrid.PropertyEditors
 
         public override IDictionary<string, object> ConvertDbToEditor(IDictionary<string, object> defaultPreVals, PreValueCollection persistedPreVals)
         {
+
             IDictionary<string, PreValue> editorValues = new Dictionary<string, PreValue>();
 
             List<PreValue> preValues = null;

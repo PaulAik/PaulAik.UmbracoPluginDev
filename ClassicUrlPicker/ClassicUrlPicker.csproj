@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6608E74C-66FD-4FEA-9788-99B8F9822CC9}</ProjectGuid>
+    <ProjectGuid>{926701B7-6FD9-48A2-A7AB-86C49BEF8B15}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassicDataTypeGrid</RootNamespace>
-    <AssemblyName>ClassicDataTypeGrid</AssemblyName>
+    <RootNamespace>ClassicUrlPicker</RootNamespace>
+    <AssemblyName>ClassicUrlPicker</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -177,8 +176,6 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -221,54 +218,6 @@
       <HintPath>..\packages\UmbracoCms.Core.7.5.8\lib\TidyNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="uComponents.Controls, Version=6.1.5900.24993, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.Controls.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.Core, Version=6.1.5900.24990, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.DataTypes, Version=6.1.5900.24991, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.DataTypes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.DataTypes.RazorDataTypeModels, Version=6.1.5900.24992, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.DataTypes.RazorDataTypeModels.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.Installer, Version=6.1.5900.24993, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.Installer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.Legacy, Version=6.1.5900.24994, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.Legacy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.MacroEngines, Version=6.1.5900.24994, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.MacroEngines.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.Mapping, Version=6.1.5900.24994, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.Mapping.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.NotFoundHandlers, Version=6.1.5900.24993, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.NotFoundHandlers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.PropertyEditors.ValueConverters, Version=6.1.5900.24992, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.PropertyEditors.ValueConverters.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.UI, Version=6.1.5900.24993, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.UI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="uComponents.XsltExtensions, Version=6.1.5900.24992, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Git\malhdv.website\packages\uComponents.6.1.1\lib\net40\uComponents.XsltExtensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="umbraco, Version=1.0.6233.15016, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.5.8\lib\umbraco.dll</HintPath>
       <Private>True</Private>
@@ -307,14 +256,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\ClassicDataTypeGridColumnPreValue.cs" />
-    <Compile Include="Models\ClassicGridDataTypeModel.cs" />
-    <Compile Include="PropertyEditors\ClassicDataTypeGridPreValueEditor.cs" />
-    <Compile Include="PropertyEditors\ClassicDataTypeGridPropertyEditor.cs" />
+    <Compile Include="ClassicUrlPickerPreValueEditor.cs" />
+    <Compile Include="ClassicUrlPickerPropertyEditor.cs" />
+    <Compile Include="ClassicUrlPickerPropertyValueEditorWrapper.cs" />
+    <Compile Include="Models\UrlPickerMode.cs" />
+    <Compile Include="Models\UrlPickerState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyEditors\ClassicDataTypeGridPropertyValueEditorWrapper.cs" />
-    <Compile Include="ValueConverters\ClassicDataTypeGridValueConverter.cs" />
-    <Compile Include="Web\Controllers\ClassicDataTypeGridApiController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -41,14 +41,17 @@ namespace ClassicDataTypeGrid.Web.Controllers
                 var editor = PropertyEditorResolver.Current.GetByAlias(dataTypeDefinition.PropertyEditorAlias);
                 var preVals = UmbracoContext.Current.Application.Services.DataTypeService.GetPreValuesCollectionByDataTypeId(dataTypeDefinition.Id);
 
-                dataTypeModels.Add(new ClassicGridDataTypeModel()
+                if (editor != null)
                 {
-                    Alias = dataTypeDefinition.PropertyEditorAlias,
-                    View = editor.ValueEditor.View,
-                    Config = editor.PreValueEditor.ConvertDbToEditor(editor.DefaultPreValues, preVals),
-                    Id = dataTypeDefinition.Id,
-                    Name = dataTypeDefinition.Name
-                });
+                    dataTypeModels.Add(new ClassicGridDataTypeModel()
+                    {
+                        Alias = dataTypeDefinition.PropertyEditorAlias,
+                        View = editor.ValueEditor.View,
+                        Config = editor.PreValueEditor.ConvertDbToEditor(editor.DefaultPreValues, preVals),
+                        Id = dataTypeDefinition.Id,
+                        Name = dataTypeDefinition.Name
+                    });
+                }
             }
 
             return dataTypeModels;
